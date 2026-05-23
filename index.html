@@ -3,52 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>骷髏 | 自我介紹</title>
+  <title>骷髏 | 個人頁面</title>
+  <meta name="description" content="骷髏的個人頁面，分享 Discord 機器人、網站架設、Python 與技術作品。" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="container">
-    <section class="hero">
-      <p class="tag">Welcome to my website</p>
-      <h1>骷髏</h1>
-      <p class="intro">
-        這是我的個人自我介紹網站。這裡會放我的簡介、作品、技能與社群連結。
-      </p>
+  <main class="page fade-in" aria-label="個人檔案卡片">
+    <section class="profile-card">
+      <header class="banner" aria-hidden="true"></header>
 
-      <div class="buttons">
-        <a href="#about">關於我</a>
-        <a href="#projects">作品</a>
+      <div class="profile-head">
+        <div class="avatar" aria-label="骷髏頭像">骷</div>
+        <div class="identity">
+          <h1>骷髏</h1>
+          <p class="status">正在開發自己的個人網站</p>
+        </div>
       </div>
-    </section>
 
-    <section id="about" class="card">
-      <h2>關於我</h2>
-      <p>
-        我喜歡研究程式、Discord 機器人、網站架設，以及各種有趣的技術。
-      </p>
-    </section>
+      <section class="block" aria-labelledby="about-title">
+        <h2 id="about-title">關於我</h2>
+        <p>
+          喜歡研究 Discord 機器人、網站架設、Python、日文與各種有趣的技術。
+        </p>
+      </section>
 
-    <section class="card">
-      <h2>技能</h2>
-      <ul>
-        <li>HTML / CSS / JavaScript</li>
-        <li>Python</li>
-        <li>Discord Bot 開發</li>
-        <li>網站架設</li>
-      </ul>
-    </section>
+      <section class="block" aria-labelledby="skills-title">
+        <h2 id="skills-title">技能徽章</h2>
+        <div class="badges">
+          <span class="badge">Discord Bot</span>
+          <span class="badge">Python</span>
+          <span class="badge">Web Setup</span>
+          <span class="badge">HTML / CSS / JS</span>
+          <span class="badge">日文學習</span>
+        </div>
+      </section>
 
-    <section id="projects" class="card">
-      <h2>作品</h2>
-      <p>之後可以在這裡放你的 XPbot、Musicbot、下載器或其他專案。</p>
-    </section>
+      <section class="block" aria-labelledby="projects-title">
+        <h2 id="projects-title">作品</h2>
+        <article class="project-card" tabindex="0">
+          <h3>XPbot</h3>
+          <p>Discord 經驗值與等級系統機器人</p>
+          <span class="chip">Project Badge</span>
+        </article>
+      </section>
 
-    <section class="card">
-      <h2>社群連結</h2>
-      <div class="links">
-        <a href="https://github.com/TWskeletonTW" target="_blank">GitHub</a>
-        <a href="https://me.twskeleton.tw" target="_blank">Website</a>
-      </div>
+      <section class="block" aria-labelledby="links-title">
+        <h2 id="links-title">社群連結</h2>
+        <div class="social-links">
+          <a href="https://github.com/TWskeletonTW" target="_blank" rel="noreferrer noopener">GitHub</a>
+          <a href="https://me.twskeleton.tw" target="_blank" rel="noreferrer noopener">Website</a>
+        </div>
+      </section>
     </section>
   </main>
 
