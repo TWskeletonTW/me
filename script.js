@@ -1,4 +1,4 @@
-console.log("me.twskeleton.tw loaded");
+console.log("Discord-inspired profile page loaded");
 
 document.addEventListener("DOMContentLoaded", () => {
   const yearText = document.querySelector("footer p");
