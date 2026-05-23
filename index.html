@@ -13,7 +13,11 @@
       <header class="banner" aria-hidden="true"></header>
 
       <div class="profile-head">
-        <div class="avatar" aria-label="骷髏頭像">骷</div>
+        <div class="avatar-wrap">
+          <img class="avatar" src="assets/avatar.png" alt="骷髏的頭像" />
+          <span class="status-dot" aria-label="online"></span>
+        </div>
+
         <div class="identity">
           <h1>骷髏</h1>
           <p class="status">正在開發自己的個人網站</p>
@@ -40,11 +44,26 @@
 
       <section class="block" aria-labelledby="projects-title">
         <h2 id="projects-title">作品</h2>
-        <article class="project-card" tabindex="0">
-          <h3>XPbot</h3>
-          <p>Discord 經驗值與等級系統機器人</p>
-          <span class="chip">Project Badge</span>
-        </article>
+
+        <div class="projects">
+          <article class="project-card" tabindex="0">
+            <h3>XPbot</h3>
+            <p>Discord 經驗值與等級系統機器人</p>
+            <span class="chip">Discord Bot</span>
+          </article>
+
+          <article class="project-card" tabindex="0">
+            <h3>Musicbot</h3>
+            <p>Discord 音樂播放與管理機器人</p>
+            <span class="chip">Music Tool</span>
+          </article>
+
+          <article class="project-card" tabindex="0">
+            <h3>影片下載器</h3>
+            <p>Windows 影片與音訊下載工具</p>
+            <span class="chip">Windows App</span>
+          </article>
+        </div>
       </section>
 
       <section class="block" aria-labelledby="links-title">
