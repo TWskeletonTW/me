@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>骷髏 | 個人頁面</title>
   <meta name="description" content="骷髏的個人頁面，分享 Discord 機器人、網站架設、Python 與技術作品。" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -15,31 +16,33 @@
       <div class="profile-head">
         <div class="avatar-wrap">
           <img class="avatar" src="assets/avatar.jpg" alt="骷髏的頭像" />
-          <span class="status-dot" aria-label="online"></span>
+          <span class="status-dot" aria-label="idle"></span>
         </div>
+        <div class="custom-status">
+          <span class="status-emoji" aria-hidden="true">💻</span>
+          <span class="status-text">正在開發自己的個人網站</span>
+        </div>
+      </div>
 
-        <div class="identity">
-          <h1>骷髏</h1>
-          <p class="status">正在開發自己的個人網站</p>
+      <div class="profile-identity">
+        <h1>骷髏</h1>
+        <div class="username-row">
+          <span class="username-tag" style="font-size: 1.00rem">@twskeletontw</span>
+          <span class="user-badges">
+            <span class="user-badge" data-tip="Discord Bot" style="--c: #5865F2" tabindex="0"><i class="fa-brands fa-discord"></i></span>
+            <span class="user-badge" data-tip="Python" style="--c: #FFD43B" tabindex="0"><i class="fa-brands fa-python"></i></span>
+            <span class="user-badge" data-tip="Web Setup" style="--c: #22c55e" tabindex="0"><i class="fa-solid fa-server"></i></span>
+            <span class="user-badge" data-tip="HTML / CSS / JS" style="--c: #f97316" tabindex="0"><i class="fa-solid fa-code"></i></span>
+            <span class="user-badge" data-tip="日文學習" style="--c: #f43f5e" tabindex="0"><i class="fa-solid fa-language"></i></span>
+          </span>
         </div>
       </div>
 
       <section class="block" aria-labelledby="about-title">
-        <h2 id="about-title">關於我</h2>
+        <h2 id="about-title">簡介</h2>
         <p>
-          喜歡研究 Discord 機器人、網站架設、Python、日文與各種有趣的技術。
+          早安!我是骷髏<br>我喜歡研究 Discord 機器人、網站架設、Python<br>有在嘗試學習日文，但目前挺爛的<br>喜歡J-POP，也看一些動漫<br>是個中度邦邦廚，特別喜歡MyGO!!!!!
         </p>
-      </section>
-
-      <section class="block" aria-labelledby="skills-title">
-        <h2 id="skills-title">技能徽章</h2>
-        <div class="badges">
-          <span class="badge">Discord Bot</span>
-          <span class="badge">Python</span>
-          <span class="badge">Web Setup</span>
-          <span class="badge">HTML / CSS / JS</span>
-          <span class="badge">日文學習</span>
-        </div>
       </section>
 
       <section class="block" aria-labelledby="projects-title">
@@ -47,7 +50,7 @@
 
         <div class="projects">
           <article class="project-card" tabindex="0">
-            <h3>XPbot</h3>
+            <h3><i class="fa-brands fa-discord"></i> XPbot</h3>
             <p>Discord 經驗值與等級系統機器人</p>
             <span class="chip">Discord Bot</span>
           </article>
@@ -57,9 +60,9 @@
       <section class="block" aria-labelledby="links-title">
         <h2 id="links-title">社群連結</h2>
         <div class="social-links">
-          <a href="https://github.com/TWskeletonTW" target="_blank" rel="noreferrer noopener">GitHub</a>
-          <a href="https://discord.gg/MQKfZS2Tpv" target="_blank" rel="noreferrer noopener">Discord</a>
-          <a href="https://www.instagram.com/yang.4.hong/" target="_blank" rel="noreferrer noopener">Instagram</a>
+          <a href="https://github.com/TWskeletonTW" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-github"></i>GitHub</a>
+          <a href="https://discord.gg/MQKfZS2Tpv" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-discord"></i>Discord</a>
+          <a href="https://www.instagram.com/yang.4.hong/" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-instagram"></i>Instagram</a>
         </div>
       </section>
     </section>
