@@ -131,7 +131,7 @@ body::after {
   margin-top: -78px;
   display: flex;
   gap: 21px;
-  align-items: center;
+  align-items: flex-end;
   position: relative;
   z-index: 2;
 }
@@ -180,6 +180,7 @@ body::after {
   box-shadow: 0 0 14px rgba(240, 178, 50, 0.7);
 }
 
+/* Discord idle moon: dark circle cuts the top-left side. */
 .status-dot::before {
   content: "";
   position: absolute;
@@ -205,7 +206,7 @@ body::after {
 
 .profile-identity h1 {
   margin: 0;
-  padding-left: 0;
+  padding-left: 8px;
   font-size: clamp(26px, 4.5vw, 30px);
   line-height: 1.1;
   letter-spacing: 0;
@@ -216,7 +217,7 @@ body::after {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding-left: 0;
+  padding-left: 8px;
   margin-top: 2px;
   flex-wrap: wrap;
 }
@@ -254,6 +255,7 @@ body::after {
   outline: none;
 }
 
+/* Tooltip bubble */
 .user-badge::after {
   content: attr(data-tip);
   position: absolute;
@@ -274,6 +276,7 @@ body::after {
   transition: opacity 0.16s ease, transform 0.16s ease;
 }
 
+/* Tooltip arrow */
 .user-badge::before {
   content: "";
   position: absolute;
@@ -295,6 +298,7 @@ body::after {
   transform: translateX(-50%) translateY(0);
 }
 
+/* Discord-like custom status bubble */
 .custom-status {
   display: inline-flex;
   align-items: center;
@@ -311,28 +315,31 @@ body::after {
     inset 0 1px 0 rgba(255, 255, 255, 0.055);
   white-space: nowrap;
   position: relative;
-  transform: translateY(6px);
+  align-self: flex-end;
+  margin-bottom: 23px;
 }
 
+/* Lower tail bubble: centered above the emoji and half covered by the main bubble. */
 .custom-status::before {
   content: "";
   position: absolute;
-  left: -21px;
-  top: 15px;
-  width: 12px;
-  height: 12px;
+  left: 19px;
+  top: -7px;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
   background: #30313c;
   box-shadow: 0 7px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Upper tail bubble: left edge aligned with the main bubble, bottom touches the lower bubble top. */
 .custom-status::after {
   content: "";
   position: absolute;
-  left: -11px;
-  top: -8px;
-  width: 23px;
-  height: 23px;
+  left: 0;
+  top: -31px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: #30313c;
   box-shadow: 0 7px 12px rgba(0, 0, 0, 0.2);
@@ -371,7 +378,7 @@ body::after {
 
 .block {
   margin: 0;
-  padding: 12px 24px;
+  padding: 12px 20px 12px 32px;
   border-radius: 0;
   border: none;
   background: transparent;
@@ -380,6 +387,7 @@ body::after {
   animation: fadeInUp 0.55s ease both;
 }
 
+/* Discord-style thin divider between sections (skip first block) */
 .profile-card > .block:nth-child(n+5) {
   border-top: 1px solid rgba(79, 84, 92, 0.38);
 }
@@ -390,16 +398,16 @@ body::after {
 
 .block h2 {
   margin: 0 0 10px;
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   font-weight: 800;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   color: #e6e9ef;
 }
 
 .block p {
   margin: 0;
-  color: #dbdee1;
-  line-height: 1.74;
+  color: var(--text-soft);
+  line-height: 1.78;
   font-size: 0.94rem;
 }
 
@@ -413,8 +421,9 @@ body::after {
 .chip {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
   border-radius: 999px;
-  padding: 7px 12px;
+  padding: 7px 14px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(125, 211, 252, 0.1);
   color: #e2f7ff;
@@ -578,7 +587,7 @@ footer {
     padding: 0 16px;
     margin-top: -58px;
     gap: 11px;
-    align-items: center;
+    align-items: flex-end;
   }
 
   .avatar {
@@ -606,19 +615,19 @@ footer {
     padding: 7px 12px 7px 9px;
     border-radius: 17px;
     gap: 7px;
-    transform: translateY(4px);
+    margin-bottom: 16px;
   }
 
   .custom-status::before {
-    left: -16px;
-    top: 12px;
-    width: 9px;
-    height: 9px;
+    left: 14px;
+    top: -5px;
+    width: 10px;
+    height: 10px;
   }
 
   .custom-status::after {
-    left: -8px;
-    top: -7px;
+    left: 0;
+    top: -23px;
     width: 18px;
     height: 18px;
   }
@@ -647,10 +656,6 @@ footer {
     margin: 0;
     padding: 14px 16px;
   }
-
-  .block h2 {
-    font-size: 0.92rem;
-  }
 }
 
 @media (max-width: 420px) {
@@ -670,18 +675,19 @@ footer {
     padding: 6px 10px 6px 8px;
     border-radius: 16px;
     gap: 6px;
+    margin-bottom: 15px;
   }
 
   .custom-status::before {
-    left: -14px;
-    top: 11px;
-    width: 8px;
-    height: 8px;
+    left: 12px;
+    top: -4px;
+    width: 9px;
+    height: 9px;
   }
 
   .custom-status::after {
-    left: -7px;
-    top: -6px;
+    left: 0;
+    top: -20px;
     width: 16px;
     height: 16px;
   }
