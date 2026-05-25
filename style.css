@@ -130,7 +130,7 @@ body::after {
   padding: 0 26px;
   margin-top: -78px;
   display: flex;
-  gap: 24px;
+  gap: 22px;
   align-items: center;
   position: relative;
   z-index: 2;
@@ -205,7 +205,7 @@ body::after {
 
 .profile-identity h1 {
   margin: 0;
-  padding-left: 8px;
+  padding-left: 0;
   font-size: clamp(26px, 4.5vw, 30px);
   line-height: 1.1;
   letter-spacing: 0;
@@ -216,7 +216,7 @@ body::after {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding-left: 8px;
+  padding-left: 0;
   margin-top: 2px;
   flex-wrap: wrap;
 }
@@ -298,55 +298,55 @@ body::after {
 .custom-status {
   display: inline-flex;
   align-items: center;
-  gap: 18px;
-  min-height: 78px;
-  max-width: min(470px, calc(100% - 170px));
-  padding: 16px 32px 16px 20px;
-  border-radius: 32px;
+  gap: 10px;
+  min-height: 52px;
+  max-width: min(390px, calc(100% - 165px));
+  padding: 10px 20px 10px 14px;
+  border-radius: 24px;
   background: #30313c;
   color: #f4f4f5;
   border: 1px solid rgba(255, 255, 255, 0.04);
   box-shadow:
-    0 18px 38px rgba(0, 0, 0, 0.36),
+    0 14px 30px rgba(0, 0, 0, 0.34),
     inset 0 1px 0 rgba(255, 255, 255, 0.055);
   white-space: nowrap;
   position: relative;
-  transform: translateY(10px);
+  transform: translateY(7px);
 }
 
 .custom-status::before {
   content: "";
   position: absolute;
-  left: -38px;
-  top: 22px;
-  width: 24px;
-  height: 24px;
+  left: -25px;
+  top: 17px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   background: #30313c;
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.2);
 }
 
 .custom-status::after {
   content: "";
   position: absolute;
-  left: -22px;
-  top: -20px;
-  width: 42px;
-  height: 42px;
+  left: -13px;
+  top: -10px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: #30313c;
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.2);
 }
 
 .status-emoji {
-  width: 44px;
-  height: 44px;
+  width: 30px;
+  height: 30px;
   flex: 0 0 auto;
-  border-radius: 12px;
+  border-radius: 9px;
   display: grid;
   place-items: center;
   overflow: hidden;
-  font-size: 1.55rem;
+  font-size: 1.1rem;
   line-height: 1;
   position: relative;
   z-index: 1;
@@ -361,15 +361,17 @@ body::after {
 .status-text {
   position: relative;
   z-index: 1;
-  font-size: clamp(1.6rem, 4vw, 2.35rem);
-  line-height: 1.08;
+  font-size: clamp(1rem, 2.8vw, 1.45rem);
+  line-height: 1.1;
   letter-spacing: 0.02em;
   font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .block {
   margin: 0;
-  padding: 12px 20px 12px 32px;
+  padding: 12px 24px;
   border-radius: 0;
   border: none;
   background: transparent;
@@ -445,9 +447,12 @@ body::after {
 .projects {
   display: grid;
   gap: 12px;
+  width: 100%;
 }
 
 .project-card {
+  width: 100%;
+  margin: 0;
   border-radius: 16px;
   padding: 16px;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -467,7 +472,7 @@ body::after {
 }
 
 .project-card p {
-  margin-bottom: 12px;
+  margin: 0 0 12px;
 }
 
 .social-links {
@@ -573,7 +578,7 @@ footer {
   .profile-head {
     padding: 0 16px;
     margin-top: -58px;
-    gap: 13px;
+    gap: 12px;
     align-items: center;
   }
 
@@ -597,37 +602,37 @@ footer {
   }
 
   .custom-status {
-    min-height: 54px;
+    min-height: 42px;
     max-width: calc(100% - 118px);
-    padding: 10px 16px 10px 12px;
-    border-radius: 23px;
-    gap: 10px;
-    transform: translateY(5px);
+    padding: 8px 13px 8px 10px;
+    border-radius: 19px;
+    gap: 8px;
+    transform: translateY(4px);
   }
 
   .custom-status::before {
-    left: -25px;
-    top: 15px;
-    width: 16px;
-    height: 16px;
+    left: -19px;
+    top: 14px;
+    width: 11px;
+    height: 11px;
   }
 
   .custom-status::after {
-    left: -13px;
-    top: -12px;
-    width: 28px;
-    height: 28px;
+    left: -10px;
+    top: -8px;
+    width: 21px;
+    height: 21px;
   }
 
   .status-emoji {
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    font-size: 1.1rem;
+    width: 25px;
+    height: 25px;
+    border-radius: 7px;
+    font-size: 0.95rem;
   }
 
   .status-text {
-    font-size: clamp(1rem, 5vw, 1.35rem);
+    font-size: clamp(0.9rem, 4.2vw, 1.1rem);
     line-height: 1.1;
   }
 
@@ -640,15 +645,15 @@ footer {
   }
 
   .block {
-    margin: 12px;
-    padding: 16px;
+    margin: 0;
+    padding: 14px 16px;
   }
 }
 
 @media (max-width: 420px) {
   .profile-head {
     padding: 0 14px;
-    gap: 10px;
+    gap: 9px;
   }
 
   .avatar {
@@ -657,34 +662,34 @@ footer {
   }
 
   .custom-status {
-    min-height: 48px;
+    min-height: 39px;
     max-width: calc(100% - 104px);
-    padding: 9px 14px 9px 11px;
-    border-radius: 21px;
-    gap: 9px;
+    padding: 7px 12px 7px 9px;
+    border-radius: 18px;
+    gap: 7px;
   }
 
   .custom-status::before {
-    left: -20px;
-    top: 13px;
-    width: 14px;
-    height: 14px;
+    left: -17px;
+    top: 12px;
+    width: 10px;
+    height: 10px;
   }
 
   .custom-status::after {
-    left: -10px;
-    top: -10px;
-    width: 24px;
-    height: 24px;
+    left: -8px;
+    top: -8px;
+    width: 19px;
+    height: 19px;
   }
 
   .status-emoji {
-    width: 27px;
-    height: 27px;
+    width: 23px;
+    height: 23px;
   }
 
   .status-text {
-    font-size: clamp(0.95rem, 4.8vw, 1.16rem);
+    font-size: clamp(0.82rem, 4.1vw, 1rem);
   }
 
   .profile-identity h1 {
