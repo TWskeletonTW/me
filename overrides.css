@@ -1,0 +1,8 @@
+/* Small final fixes layered after style.css. */
+.status-text {
+  min-width: 0;
+}
+
+.custom-status {
+  min-width: 0;
+}
