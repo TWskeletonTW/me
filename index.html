@@ -7,13 +7,14 @@
   <meta name="description" content="骷髏的個人頁面，分享 Discord 機器人、網站架設、Python 與技術作品。" />
   <meta name="theme-color" content="#0c1020" />
 
+  <link rel="icon" type="image/jpeg" href="assets/avatar.jpg" />
+
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://me.twskeleton.tw/" />
   <meta property="og:title" content="骷髏 | 個人頁面" />
   <meta property="og:description" content="骷髏的個人頁面，分享 Discord 機器人、網站架設、Python 與技術作品。" />
   <meta property="og:image" content="https://me.twskeleton.tw/assets/banner.jpg" />
   <meta property="og:image:alt" content="骷髏的個人頁面 banner" />
-
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="骷髏 | 個人頁面" />
   <meta name="twitter:description" content="骷髏的個人頁面，分享 Discord 機器人、網站架設、Python 與技術作品。" />
@@ -23,10 +24,10 @@
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="overrides.css" />
 </head>
 <body>
   <main class="page fade-in" aria-label="個人檔案卡片">
+    <div class="profile-layout">
     <section class="profile-card">
       <header class="banner" aria-hidden="true"></header>
 
@@ -46,11 +47,11 @@
         <div class="username-row">
           <span class="username-tag" style="font-size: 1.00rem">@twskeletontw</span>
           <span class="user-badges">
-            <span class="user-badge" data-tip="Discord Bot" style="--c: #5865F2" tabindex="0"><i class="fa-brands fa-discord"></i></span>
-            <span class="user-badge" data-tip="Python" style="--c: #FFD43B" tabindex="0"><i class="fa-brands fa-python"></i></span>
-            <span class="user-badge" data-tip="Web Setup" style="--c: #22c55e" tabindex="0"><i class="fa-solid fa-server"></i></span>
-            <span class="user-badge" data-tip="HTML / CSS / JS" style="--c: #f97316" tabindex="0"><i class="fa-solid fa-code"></i></span>
-            <span class="user-badge" data-tip="日文學習" style="--c: #f43f5e" tabindex="0"><i class="fa-solid fa-language"></i></span>
+            <span class="user-badge" data-tip="Discord Bot" aria-label="Discord Bot" style="--c: #5865F2" tabindex="0"><i class="fa-brands fa-discord" aria-hidden="true"></i></span>
+            <span class="user-badge" data-tip="Python" aria-label="Python" style="--c: #FFD43B" tabindex="0"><i class="fa-brands fa-python" aria-hidden="true"></i></span>
+            <span class="user-badge" data-tip="Web Setup" aria-label="Web Setup" style="--c: #22c55e" tabindex="0"><i class="fa-solid fa-server" aria-hidden="true"></i></span>
+            <span class="user-badge" data-tip="HTML / CSS / JS" aria-label="HTML / CSS / JS" style="--c: #f97316" tabindex="0"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+            <span class="user-badge" data-tip="日文學習" aria-label="日文學習" style="--c: #f43f5e" tabindex="0"><i class="fa-solid fa-language" aria-hidden="true"></i></span>
           </span>
         </div>
       </div>
@@ -62,12 +63,20 @@
         </p>
       </section>
 
+      <section class="block" aria-labelledby="member-since-title">
+        <h2 id="member-since-title">成為成員時間</h2>
+        <p class="member-since">
+          <i class="fa-solid fa-user" aria-hidden="true"></i>
+          <span>2006年5月24日</span>
+        </p>
+      </section>
+
       <section class="block" aria-labelledby="projects-title">
         <h2 id="projects-title">作品</h2>
 
         <div class="projects">
           <article class="project-card" tabindex="0">
-            <h3><i class="fa-brands fa-discord"></i> XPbot</h3>
+            <h3><i class="fa-brands fa-discord" aria-hidden="true"></i> XPbot</h3>
             <p>Discord 經驗值與等級系統機器人</p>
             <span class="chip">Discord Bot</span>
           </article>
@@ -77,13 +86,55 @@
       <section class="block" aria-labelledby="links-title">
         <h2 id="links-title">社群連結</h2>
         <div class="social-links">
-          <a href="https://github.com/TWskeletonTW" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-github"></i>GitHub</a>
-          <a href="https://discord.gg/MQKfZS2Tpv" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-discord"></i>Discord</a>
-          <a href="https://www.instagram.com/yang.4.hong/" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-instagram"></i>Instagram</a>
-          <a href="https://x.com/TWskeletonTW" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-x-twitter"></i>X</a>
+          <a href="https://github.com/TWskeletonTW" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a>
+          <a href="https://discord.gg/MQKfZS2Tpv" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-discord" aria-hidden="true"></i>Discord</a>
+          <a href="https://www.instagram.com/yang.4.hong/" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-instagram" aria-hidden="true"></i>Instagram</a>
+          <a href="https://x.com/TWskeletonTW" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i>X</a>
         </div>
       </section>
     </section>
+
+    <aside class="side-panel">
+      <nav class="side-tabs" role="tablist" aria-label="個人檔案分頁">
+        <button class="side-tab is-active" type="button" role="tab" aria-selected="true">動態</button>
+      </nav>
+
+      <section class="side-section">
+        <h3 class="side-section-title">目前活動</h3>
+
+        <div class="music-card">
+          <div class="music-header">
+            <i class="fa-brands fa-apple" aria-hidden="true"></i>
+            <span>正在聽 Apple Music</span>
+          </div>
+
+          <div class="music-body">
+            <img class="music-cover" src="assets/Boku_wa....jpg" alt="「僕は…」專輯封面" />
+            <div class="music-info">
+              <p class="music-title">「僕は…」</p>
+              <p class="music-artist">Atarayo</p>
+              <p class="music-album">「僕は…」- Single</p>
+            </div>
+          </div>
+
+          <div class="music-progress">
+            <span class="music-time">00:59</span>
+            <div class="music-bar"><div class="music-bar-fill"></div></div>
+            <span class="music-time">04:00</span>
+          </div>
+
+          <a class="music-cta"
+             href="https://music.apple.com/tw/playlist/%E6%AD%8C%E5%96%AE/pl.u-XkD0vNZF2jWr0Dv"
+             target="_blank"
+             rel="noreferrer noopener">
+            <i class="fa-solid fa-play" aria-hidden="true"></i>
+            <span>Listen on Apple Music</span>
+          </a>
+        </div>
+      </section>
+    </aside>
+
+    </div>
   </main>
 
   <footer>
