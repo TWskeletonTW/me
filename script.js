@@ -80,4 +80,63 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     document.body.appendChild(el);
   });
+
+  // Real audio playback for the decorative Apple Music card.
+  const musicCard = document.querySelector(".music-card");
+  const audio = document.querySelector("#music-player");
+  const barFill = document.querySelector(".music-bar-fill");
+  const timeTexts = document.querySelectorAll(".music-time");
+
+  if (!musicCard || !audio || !barFill || timeTexts.length < 2) {
+    return;
+  }
+
+  const currentTimeText = timeTexts[0];
+  const durationText = timeTexts[1];
+
+  const formatTime = (seconds) => {
+    if (!Number.isFinite(seconds)) {
+      return "00:00";
+    }
+
+    const minutes = Math.floor(seconds / 60);
+    const remainSeconds = Math.floor(seconds % 60);
+
+    return `${String(minutes).padStart(2, "0")}:${String(remainSeconds).padStart(2, "0")}`;
+  };
+
+  const updateProgress = () => {
+    const duration = audio.duration || 0;
+    const current = audio.currentTime || 0;
+    const percent = duration > 0 ? (current / duration) * 100 : 0;
+
+    barFill.style.width = `${Math.min(percent, 100)}%`;
+    currentTimeText.textContent = formatTime(current);
+    durationText.textContent = formatTime(duration);
+  };
+
+  audio.addEventListener("loadedmetadata", updateProgress);
+  audio.addEventListener("durationchange", updateProgress);
+  audio.addEventListener("timeupdate", updateProgress);
+  audio.addEventListener("ended", updateProgress);
+
+  musicCard.addEventListener("click", async (event) => {
+    const clickedLink = event.target.closest("a");
+
+    if (clickedLink) {
+      return;
+    }
+
+    try {
+      if (audio.paused) {
+        await audio.play();
+      } else {
+        audio.pause();
+      }
+    } catch (error) {
+      console.warn("Audio playback was blocked:", error);
+    }
+  });
+
+  updateProgress();
 });
