@@ -913,17 +913,17 @@ footer {
   }
 
   .custom-status::before {
-    left: 12px;
-    top: -4px;
-    width: 9px;
-    height: 9px;
+    left: 11px;
+    top: -8px;
+    width: 20px;
+    height: 20px;
   }
 
   .custom-status::after {
     left: 0;
-    top: -20px;
-    width: 16px;
-    height: 16px;
+    top: -19px;
+    width: 13px;
+    height: 13px;
   }
 
   .status-emoji {
