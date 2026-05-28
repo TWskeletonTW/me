@@ -37,8 +37,7 @@
           <span class="status-dot" aria-label="idle"></span>
         </div>
         <div class="custom-status">
-          <span class="status-emoji" aria-hidden="true">💻</span>
-          <span class="status-text">正在開發自己的個人網站</span>
+          <span class="status-text">💻正在開發自己的個人網站</span>
         </div>
       </div>
 
@@ -71,23 +70,11 @@
         </p>
       </section>
 
-      <section class="block" aria-labelledby="projects-title">
-        <h2 id="projects-title">作品</h2>
-
-        <div class="projects">
-          <a class="project-card" href="https://status.twskeleton.tw/" target="_blank" rel="noreferrer noopener">
-            <h3><i class="fa-brands fa-discord" aria-hidden="true"></i> XPbot</h3>
-            <p>Discord 經驗值與等級系統機器人</p>
-            <span class="chip">Discord Bot</span>
-          </a>
-        </div>
-      </section>
-
       <section class="block" aria-labelledby="links-title">
         <h2 id="links-title">社群連結</h2>
         <div class="social-links">
           <a href="https://github.com/TWskeletonTW" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a>
-          <a href="https://discord.gg/MQKfZS2Tpv" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-discord" aria-hidden="true"></i>Discord</a>
+          <a href="https://discord.com/users/742687450593230898" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-discord" aria-hidden="true"></i>Discord</a>
           <a href="https://www.facebook.com/twskeletontw?locale=zh_TW" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-facebook" aria-hidden="true"></i>Facebook</a>
           <a href="https://www.instagram.com/yang.4.hong/" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-instagram" aria-hidden="true"></i>Instagram</a>
           <a href="https://x.com/TWskeletonTW" target="_blank" rel="noreferrer noopener"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i>X</a>
@@ -98,9 +85,37 @@
 
     <aside class="side-panel">
       <nav class="side-tabs" role="tablist" aria-label="個人檔案分頁">
-        <button class="side-tab is-active" type="button" role="tab" aria-selected="true">動態</button>
+        <button class="side-tab is-active" type="button" role="tab" id="tab-bulletin-btn" aria-controls="tab-bulletin" aria-selected="true">公告欄</button>
+        <button class="side-tab" type="button" role="tab" id="tab-activity-btn" aria-controls="tab-activity" aria-selected="false">動態</button>
+        <button class="side-tab" type="button" role="tab" id="tab-wishlist-btn" aria-controls="tab-wishlist" aria-selected="false">願望清單</button>
       </nav>
 
+      <div class="tab-panel" id="tab-bulletin" role="tabpanel" aria-labelledby="tab-bulletin-btn">
+        <section class="side-section">
+          <h3 class="side-section-title">常駐伺服器</h3>
+          <div class="server-card">
+            <div class="server-banner"></div>
+            <img class="server-icon" src="assets/nightcity.jpg" alt="Night City 伺服器圖示" />
+            <div class="server-body">
+              <p class="server-name">Night City <img class="server-badge" src="assets/dcicon.png" alt="社群伺服器" /></p>
+            </div>
+            <a class="server-cta" href="https://discord.gg/MQKfZS2Tpv" target="_blank" rel="noreferrer noopener">前往伺服器</a>
+          </div>
+        </section>
+
+        <section class="side-section">
+          <h3 class="side-section-title">作品</h3>
+          <div class="projects">
+            <a class="project-card" href="https://status.twskeleton.tw/" target="_blank" rel="noreferrer noopener">
+              <h3><i class="fa-brands fa-discord" aria-hidden="true"></i> XPbot</h3>
+              <p>Discord 經驗值與等級系統機器人</p>
+              <span class="chip">Discord Bot</span>
+            </a>
+          </div>
+        </section>
+      </div>
+
+      <div class="tab-panel" id="tab-activity" role="tabpanel" aria-labelledby="tab-activity-btn" hidden>
       <section class="side-section">
         <h3 class="side-section-title">目前活動</h3>
 
@@ -134,7 +149,7 @@
              target="_blank"
              rel="noreferrer noopener">
             <i class="fa-solid fa-play" aria-hidden="true"></i>
-            <span>Listen on Apple Music</span>
+            <span>My Apple Music Playlist</span>
           </a>
         </div>
 
@@ -163,6 +178,14 @@
              rel="noreferrer noopener">查看我的玩家資料</a>
         </div>
       </section>
+      </div>
+
+      <div class="tab-panel" id="tab-wishlist" role="tabpanel" aria-labelledby="tab-wishlist-btn" hidden>
+        <section class="side-section">
+          <h3 class="side-section-title">願望清單</h3>
+          <p class="wishlist-empty">有空更新</p>
+        </section>
+      </div>
     </aside>
 
     </div>

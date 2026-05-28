@@ -1,6 +1,21 @@
-console.log("Discord-inspired profile page loaded");
-
 document.addEventListener("DOMContentLoaded", () => {
+  // Side panel tabs: 公告欄 / 動態 / 願望清單
+  const tabButtons = document.querySelectorAll(".side-tab");
+  const tabPanels = document.querySelectorAll(".tab-panel");
+  tabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const targetId = btn.getAttribute("aria-controls");
+      tabButtons.forEach((b) => {
+        const selected = b === btn;
+        b.classList.toggle("is-active", selected);
+        b.setAttribute("aria-selected", String(selected));
+      });
+      tabPanels.forEach((panel) => {
+        panel.hidden = panel.id !== targetId;
+      });
+    });
+  });
+
   // Auto-update year in footer
   const yearText = document.querySelector("footer p");
   if (yearText) {
@@ -8,22 +23,74 @@ document.addEventListener("DOMContentLoaded", () => {
     yearText.textContent = `© ${year} 骷髏. All rights reserved.`;
   }
 
-  // Typewriter effect with blinking caret — runs on every page load
+  // Typewriter effect with blinking caret — runs on every page load.
+  // Pulls a random line from status-messages.json; falls back to the HTML text
+  // if the file can't be fetched (e.g. opened via file://).
   const statusTextEl = document.querySelector(".status-text");
+  const customStatus = document.querySelector(".custom-status");
   if (statusTextEl) {
-    const original = statusTextEl.textContent.trim();
-    statusTextEl.textContent = "";
-    statusTextEl.classList.add("typing");
-    let i = 0;
-    setTimeout(() => {
-      const timer = setInterval(() => {
-        statusTextEl.textContent = original.slice(0, ++i);
-        if (i >= original.length) {
-          clearInterval(timer);
-          setTimeout(() => statusTextEl.classList.remove("typing"), 800);
+    const fallback = statusTextEl.textContent.trim();
+    let messages = [fallback];
+    let lastIndex = -1;
+    let startTimer = null;
+    let typeTimer = null;
+
+    // Split into grapheme clusters so emoji (flags, ZWJ sequences) never get
+    // torn apart mid-typing. Falls back to code-point split on old browsers.
+    const splitGraphemes = (str) => {
+      if (typeof Intl !== "undefined" && Intl.Segmenter) {
+        const seg = new Intl.Segmenter("zh", { granularity: "grapheme" });
+        return Array.from(seg.segment(str), (s) => s.segment);
+      }
+      return Array.from(str);
+    };
+
+    const runTypewriter = (text, startDelay) => {
+      clearTimeout(startTimer);
+      clearInterval(typeTimer);
+      const chars = splitGraphemes(text);
+      statusTextEl.textContent = "";
+      statusTextEl.classList.add("typing");
+      let i = 0;
+      startTimer = setTimeout(() => {
+        typeTimer = setInterval(() => {
+          i++;
+          statusTextEl.textContent = chars.slice(0, i).join("");
+          if (i >= chars.length) {
+            clearInterval(typeTimer);
+            setTimeout(() => statusTextEl.classList.remove("typing"), 800);
+          }
+        }, 100);
+      }, startDelay);
+    };
+
+    const showRandom = (startDelay) => {
+      let idx = Math.floor(Math.random() * messages.length);
+      if (messages.length > 1 && idx === lastIndex) {
+        idx = (idx + 1) % messages.length;
+      }
+      lastIndex = idx;
+      const pick = messages[idx];
+      // Strings are used as-is; legacy { emoji, text } objects are merged.
+      const text = typeof pick === "string"
+        ? pick
+        : `${pick.emoji || ""}${pick.text || ""}`;
+      runTypewriter(text || fallback, startDelay);
+    };
+
+    fetch("status-messages.json")
+      .then((res) => res.json())
+      .then((list) => {
+        if (Array.isArray(list) && list.length) {
+          messages = list;
         }
-      }, 100);
-    }, 600);
+        showRandom(600);
+      })
+      .catch(() => runTypewriter(fallback, 600));
+
+    if (customStatus) {
+      customStatus.addEventListener("click", () => showRandom(150));
+    }
   }
 
   // Typewriter for the about-me paragraph (preserves <br> line breaks)
