@@ -172,6 +172,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentTimeText = timeTexts[0];
   const durationText = timeTexts[1];
 
+  const setPlayingState = () => {
+    const playing = !audio.paused && !audio.ended;
+    musicCard.classList.toggle("is-playing", playing);
+    musicCard.setAttribute("aria-pressed", String(playing));
+  };
+
   const formatTime = (seconds) => {
     if (!Number.isFinite(seconds)) {
       return "00:00";
@@ -193,10 +199,29 @@ document.addEventListener("DOMContentLoaded", () => {
     durationText.textContent = formatTime(duration);
   };
 
+  const toggleAudio = async () => {
+    try {
+      if (audio.paused) {
+        await audio.play();
+      } else {
+        audio.pause();
+      }
+      setPlayingState();
+    } catch (error) {
+      console.warn("Audio playback was blocked:", error);
+      setPlayingState();
+    }
+  };
+
   audio.addEventListener("loadedmetadata", updateProgress);
   audio.addEventListener("durationchange", updateProgress);
   audio.addEventListener("timeupdate", updateProgress);
-  audio.addEventListener("ended", updateProgress);
+  audio.addEventListener("play", setPlayingState);
+  audio.addEventListener("pause", setPlayingState);
+  audio.addEventListener("ended", () => {
+    updateProgress();
+    setPlayingState();
+  });
 
   musicCard.addEventListener("click", async (event) => {
     const clickedLink = event.target.closest("a");
@@ -205,16 +230,23 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    try {
-      if (audio.paused) {
-        await audio.play();
-      } else {
-        audio.pause();
-      }
-    } catch (error) {
-      console.warn("Audio playback was blocked:", error);
+    await toggleAudio();
+  });
+
+  musicCard.addEventListener("keydown", async (event) => {
+    if (event.key !== "Enter" && event.key !== " ") {
+      return;
     }
+
+    const focusedLink = event.target.closest("a");
+    if (focusedLink) {
+      return;
+    }
+
+    event.preventDefault();
+    await toggleAudio();
   });
 
   updateProgress();
+  setPlayingState();
 });
