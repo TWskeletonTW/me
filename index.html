@@ -24,6 +24,41 @@
   <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css?v=2" />
+  <style>
+    .music-card {
+      cursor: pointer;
+      transition:
+        background 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        transform 0.18s ease;
+    }
+
+    .music-card:hover,
+    .music-card:focus-visible {
+      border-color: rgba(252, 61, 87, 0.42);
+      background: rgba(43, 45, 49, 0.72);
+      box-shadow: 0 14px 34px rgba(252, 61, 87, 0.16);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .music-card.is-playing {
+      border-color: rgba(252, 61, 87, 0.62);
+      background: linear-gradient(135deg, rgba(252, 61, 87, 0.14), rgba(43, 45, 49, 0.62));
+      box-shadow: 0 16px 36px rgba(252, 61, 87, 0.20);
+    }
+
+    .music-card.is-playing .music-header i,
+    .music-card.is-playing .music-header span {
+      color: #ff6b81;
+    }
+
+    .music-card.is-playing .music-bar-fill {
+      background: #ff6b81;
+      box-shadow: 0 0 12px rgba(255, 107, 129, 0.75);
+    }
+  </style>
 </head>
 <body>
   <main class="page fade-in" aria-label="個人檔案卡片">
@@ -129,7 +164,7 @@
       <section class="side-section">
         <h3 class="side-section-title">目前活動</h3>
 
-        <div class="music-card">
+        <div class="music-card" tabindex="0" role="button" aria-label="播放或暫停目前音樂">
           <audio id="music-player" preload="metadata" loop>
             <source src="assets/bokuwa.mp3" type="audio/mpeg" />
           </audio>
@@ -205,6 +240,6 @@
     <p>© 2026 骷髏. All rights reserved.</p>
   </footer>
 
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
