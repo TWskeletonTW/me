@@ -148,10 +148,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(el);
   });
 
-  // 少女樂團派對 遊戲時間：以 2025-12-24 為第 1 天計算，每天 +1
+  // 少女樂團派對 遊戲時間：以 2026-01-07 為第 1 天計算，每天 +1
   const gameTimeText = document.querySelector("#game-time-text");
   if (gameTimeText) {
-    const start = new Date(2025, 11, 24);
+    const start = new Date(2026, 0, 7);
     const now = new Date();
     const startDay = new Date(start.getFullYear(), start.getMonth(), start.getDate()).getTime();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
