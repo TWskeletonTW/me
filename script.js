@@ -148,15 +148,21 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(el);
   });
 
-  // 少女樂團派對 遊戲時間：以 2026-01-07 為第 1 天計算，每天 +1
+  // 日服第 1 天從台灣時間 2026-09-13 03:00 開始，與訪客裝置時區無關。
   const gameTimeText = document.querySelector("#game-time-text");
   if (gameTimeText) {
-    const start = new Date(2026, 0, 7);
-    const now = new Date();
-    const startDay = new Date(start.getFullYear(), start.getMonth(), start.getDate()).getTime();
-    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-    const days = Math.floor((today - startDay) / 86400000) + 1;
-    gameTimeText.textContent = `${days} 天`;
+    const start = Date.parse("2026-09-13T03:00:00+08:00");
+    const dayMilliseconds = 86400000;
+    let gameDayTimer;
+    const updateGameDays = () => {
+      clearTimeout(gameDayTimer);
+      const now = Date.now();
+      const days = Math.floor((now - start) / dayMilliseconds) + 1;
+      gameTimeText.textContent = `${days} 天`;
+      gameDayTimer = setTimeout(updateGameDays, start + days * dayMilliseconds - now);
+    };
+    updateGameDays();
+    document.addEventListener("visibilitychange", updateGameDays);
   }
 
   // Real audio playback for the decorative Apple Music card.
